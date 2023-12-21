@@ -10481,7 +10481,7 @@ a:focus {
 }
 
 .border-left-orange {
-  border-left: 0.25rem solid #FF8A00 !important;
+  border-left: 0.25rem solid #ff8a00 !important;
 }
 .border-left-primary {
   border-left: 0.25rem solid #4e73df !important;
@@ -11735,6 +11735,8 @@ form.user .btn-user {
 }
 
 footer.sticky-footer {
+  display: flex;
+  position: relative;
   padding: 2rem 0;
   flex-shrink: 0;
 }

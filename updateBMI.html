@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home</title>
+    <title>BMI</title>
 
     <!-- icon -->
     <script src="https://kit.fontawesome.com/cefd25e2a1.js" crossorigin="anonymous"></script>
@@ -44,12 +44,12 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="index.html">
                     <i class="fa-solid fa-house"></i>
                     <span>Home</span></a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item active ">
                 <a class="nav-link" href="updateBMI.html">
                     <i class="fa-brands fa-intercom"></i>
                     <span>Update BMI</span></a>
@@ -70,10 +70,8 @@
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
             <div id="content">
-
                 <!-- Topbar -->
                 <nav class="navbar bg-gradient-warning-90 navbar-expand navbar-light topbar mb-4  static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
@@ -167,7 +165,6 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
                 </nav>
                 <!-- End of Topbar -->
@@ -179,201 +176,133 @@
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-12 col-md-12 mb-4">
                             <div class="card  shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class=" col-6 ">
-                                            <div class="row text-xs font-weight-bold text-primary ml-2">
-                                                <div class="col-xs-12 col-md-6 mb-2 "
-                                                    style="border-left: 0.25rem solid #FF8A00">
-                                                    <div class="mb-0 font-weight-bold text-gray-800">Eaten</div>
-                                                    <div id="eatenKacl" class="h3 mb-0 font-weight-bold text-gray-800">
-                                                        <span class="text-xs">kcal</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-12 col-md-6 "
-                                                    style="border-left: 0.25rem solid #82C143">
-                                                    <div class="mb-0 font-weight-bold text-gray-800">Total</div>
-                                                    <div id="totolKacl"
-                                                        class="h3 mb-0 font-weight-bold text-gray-800" />
-                                                    <span class="text-xs">kcal</span>
-                                                </div>
+                                <div class="row card-body">
+                                    <div class="col-sm-6 col-xs-12 text-center">
+                                        <div class="text-center">
+                                            <img src="img/img Body/G-1.png" width="30%" class="img-fluid rounded-top"
+                                                alt="">
+                                        </div>
+                                        <div class="pt-3 h5">Body Status : <span class="text-success">Normal</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="h2 text-center">Update BMI</div>
+                                        <div class="pb-3 ">
+                                            <label class="h5 pl-2">Age</label>
+                                            <input class="form-control form-control-user" disabled type="number"
+                                                id="age" placeholder="18">
+                                        </div>
+                                        <div class="pb-3 ">
+                                            <label class="h5 pl-2">Weight (kg)</label>
+                                            <input class="form-control form-control-user" type="number" id="weight"
+                                                placeholder="Enter weight">
+                                        </div>
+                                        <div class="pb-3 ">
+                                            <label class="h5 pl-2">Weight (kg)</label>
+                                            <input class="form-control form-control-user" type="number" id="height"
+                                                placeholder="Enter height">
+                                        </div>
+
+                                        <div class="row align-content-between justify-content-center pt-4">
+                                            <div class="col-6 text-center ">
+                                                <button class="btn btn-primary btn-lg text-center"
+                                                    onclick="calculateBMI()">Calculate
+                                                    BMI</button>
+                                            </div>
+                                            <div class="col-6 text-center">
+                                                <button class="btn btn-success btn-lg text-center"
+                                                    onclick="saveBMI()">Save BMI</button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-6 ">
-                                        <div class="d-flex align-items-center justify-content-center chart-pie">
-                                            <canvas id="myPieChart"></canvas>
-                                        </div>
+                                        <div class="h2 text-center pt-5" id="result"></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Content Row -->
-                <div class="row">
-
-                    <!-- Content Column -->
-                    <div class="col-lg-12 mb-4">
-
-                        <!-- Project Card Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <div class="m-0 h6 font-weight-bold text-primary"><i
-                                        class="pr-1 fa-solid fa-burger"></i>Meal
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="small font-weight-bold">Breakfast <span class="float-right">finished!</span>
-                                </h4>
-                                <div id="customProgressBar" class="progress">
-                                    <div id="customProgressBarValue1" class="progress-bar bg-gradient-warning-90"
-                                        role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                                    </div>
-                                </div>
-                                <h4 class="small font-weight-bold">Lunch
-                                    <span class="float-right">unfinished!</span>
-                                </h4>
-                                <div id="customProgressBar" class="progress">
-                                    <div id="customProgressBarValue2" class="progress-bar bg-gradient-orange-90"
-                                        role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                                    </div>
-                                </div>
-                                <h4 class="small font-weight-bold">Dinner
-                                    <span class="float-right">unfinished!</span>
-                                </h4>
-                                <div id="customProgressBar" class="progress">
-                                    <div id="customProgressBarValue3" class="progress-bar bg-gradient-buledark-90"
-                                        role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                                    </div>
-                                </div>
-                                <!-- <h4 class="small font-weight-bold">Server Migration <span
-                                            class="float-right">20%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 10%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Area Chart -->
-                <div class="col-lg-12">
-                    <div class="card shadow mb-4">
-                        <!-- Card Header - Dropdown -->
-                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary"><i
-                                    class="pr-1 fa-solid fa-weight-scale"></i>Your
-                                Goal!</h6>
-                        </div>
-                        <!-- Card Body -->
-                        <div class="card-body">
-                            <div class="chart-area">
-                                <canvas id="myAreaChart"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /.container-fluid -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
         </div>
-        <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2021</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
+        <!-- End of Page Wrapper -->
 
-    </div>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        let Eaten = 1500
-        let Total = 2500
+        <script>
+            // JavaScript (script.js)
+            function calculateBMI(event) {
+                // event.preventDefault();  // ป้องกันการทำงานเริ่มต้นของปุ่ม
 
-        let getEaten = document.getElementById('eatenKacl')
-        let getTotal = document.getElementById('totolKacl')
-        // console.log(getEaten);
-        showKacl() //Run eaten & total
-        setProgressBarValue1(100); //Breakfast
-        setProgressBarValue2(0); // lunch
-        setProgressBarValue3(0); //diner
-        function showKacl() {
-            getEaten.innerHTML = `${Eaten} <span class="text-xs">kcal</span>`
-            getTotal.innerHTML = `${Total} <span class="text-xs">kcal</span>`
-        }
+                // Get weight and height values
+                const weight = document.getElementById('weight').value;
+                const height = document.getElementById('height').value;
 
-        function getValues() {
-            return {
-                Eaten: Eaten,
-                Total: Total
-            };
-        }
-        function setProgressBarValue1(value) {
-            const progressBar = document.getElementById('customProgressBarValue1');
-            progressBar.style.width = `${value}%`;
-            progressBar.setAttribute('aria-valuenow', value);
-        }
-        function setProgressBarValue2(value) {
-            const progressBar = document.getElementById('customProgressBarValue2');
-            progressBar.style.width = `${value}%`;
-            progressBar.setAttribute('aria-valuenow', value);
-        }
-        function setProgressBarValue3(value) {
-            const progressBar = document.getElementById('customProgressBarValue3');
-            progressBar.style.width = `${value}%`;
-            progressBar.setAttribute('aria-valuenow', value);
-        }
-    </script>
+                // Check if inputs are valid
+                if (!weight || !height) {
+                    alert('Please enter both weight and height.');
+                    return;
+                }
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                // Calculate BMI
+                const bmi = (weight / ((height / 100) ** 2)).toFixed(2);
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+                // Display the result
+                const resultElement = document.getElementById('result');
+                resultElement.innerHTML = `<p>Your BMI is: <strong>${bmi}</strong></p>`;
+            }
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+        </script>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
