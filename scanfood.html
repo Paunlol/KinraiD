@@ -177,61 +177,230 @@
                     <!-- Content Row -->
                     <div class="row">
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-12 col-md-12 mb-4">
-                            <div class="card  shadow h-100 py-2">
-                                <div class="row card-body align-content-center text-center">
-                                    <div class="col-12 ">Teachable Machine Image Model</div>
-                                    <div class="col-12 "><button type="button" onclick="init()">Start</button>
+                        <div class="col-xl-6 col-md-12 mb-4">
+                            <div class="card shadow h-100 ">
+                                <div class="card-header py-1">
+                                    <div class="m-0 h6 font-weight-bold text-primary py-3"><i
+                                            class="pr-1 fa-solid fa-image"></i></i>Choose your Image
                                     </div>
-                                    <div class="col-12 pt-5 " id="webcam-container"></div>
-                                    <div class="col-12 pt-5 " id="label-container"></div>
                                 </div>
+                                <div class="row card-body align-content-center text-center ">
+                                    <div class="col-12 pt-2">
+                                        <div id="image-container ">
+                                            <img id="image-preview" src="img/image black.png"
+                                                class="img-fluid rounded-top" width="40%" alt="" />
+                                        </div>
+                                        <div class="upload-btn-wrapper text-center">
+                                            <input disabled type="file" accept="image/*" id="input-file">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-md-12 mb-4">
+                            <div class="card shadow h-100 ">
+                                <div class="card-header py-1">
+                                    <div class="m-0 h6 font-weight-bold text-primary py-3"><i
+                                            class="pr-1 fa-solid fa-circle-info"></i></i>Nutrition information
+                                    </div>
+                                </div>
+                                <div class="row card-body text-left ">
+                                    <div class="col-12 pt-2">
+                                        <div class="h5">ชื่อเมนู : <span>ผัดกระเพราหมูสับ</span> </div>
+                                        <div class="h5">หน่วยบริโภค : <select id="foodSelection"></select> </div>
+                                        <div class="h5 ">พลังงานทั้งหมด : <input class=""
+                                                style="border-radius: 10rem; padding: 0.5rem; background-color: rgb(231, 247, 187); font: 1em sans-serif;"
+                                                disabled type="text" name="" id="" value="231"> Kcal</div>
+                                        <div class=" h5">ไขมัน : <span><input
+                                                    style="border-radius: 10rem; padding: 0.5rem; background-color: rgb(231, 247, 187); font: 1em sans-serif;"
+                                                    disabled type="text" name="" id="" value="6.4"> g</span> </div>
+                                        <div class="h5">คาร์โบไฮเดรต : <span><input
+                                                    style="border-radius: 10rem; padding: 0.5rem; background-color: rgb(231, 247, 187); font: 1em sans-serif;"
+                                                    disabled type="text" name="" id="" value="6.4"> g</span> </div>
+                                        <div class="h5">โปรตีน : <span><input
+                                                    style="border-radius: 10rem; padding: 0.5rem; background-color: rgb(231, 247, 187); font: 1em sans-serif;"
+                                                    disabled type="text" name="" id="" value="6.4"> g</span> </div>
+                                    </div>
+                                    <div class="condition mt-2"
+                                        style="border-radius: 1rem; background-color: #FAFAB4; width:fit-content; height: fit-content;">
+                                        <div class="text-dark p-3">
+                                            <div><b>เงื่อนไข</b></div>
+
+                                            ข้อมูลโภชนาการอาหารมาจากผู้เข้าใช้งาน
+                                            โดยมีวัตถุประสงค์เพื่อคำนวณแคลอรี่และควบคุมน้ำหนักเฉพาะบุคคลเท่านั้น
+
+                                            <b>ไม่สามารถใช้อ้างอิงทางการแพทย์</b>
+                                            <div><b>หมายเหตุ</b></div>
+
+                                            ร้อยละของปริมาณสารอาหารที่แนะนำให้บริโภคต่อวันสำหรับคนไทยอายุตั้งแต่ 6
+                                            ปีขึ้นไป โดยคิดจากความต้องการพลังงานวันละ 2,000 กิโล
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
         </div>
+    </div>
+    <!-- End of Main Content -->
 
-        <!-- End of Page Wrapper -->
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; Your Website 2021</span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+    </div>
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+    <!-- End of Page Wrapper -->
 
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script type="text/javascript">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await init()
+            await enableInput()
+            console.log('Page is ready to use!');
+            // ทำสิ่งที่คุณต้องการทำหลังจากเว็บพร้อมใช้งาน
+        });
+        // document.addEventListener('DOMContentLoaded', init);
+        function enableInput() {
+            // เปลี่ยนค่า disabled เป็น false
+            document.getElementById('input-file').disabled = false;
+        }
+        async function init() {
+            // เลือกไฟล์รูปภาพ
+            const inputElement = document.getElementById('input-file');
+            // console.log("inputElement", inputElement);
+            // เรียกใช้ Teachable Machine model
+            const URL = 'https://teachablemachine.withgoogle.com/models/tz989cxYn/';
+            const model = await tmImage.load(URL + 'model.json', URL + 'metadata.json');
+            console.log("เรียกใช้ Teachable Machine model");
+
+            // ให้ผู้ใช้เลือกรูปภาพเมื่อคลิกที่ไฟล์
+            inputElement.addEventListener('change', handleImageUpload);
+
+            function handleImageUpload() {
+                console.log("asdasdasdasdasdasd");
+
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = async function (e) {
+                        const image = new Image();
+                        image.src = e.target.result;
+                        const imagePreview = image.src
+                        // console.log("image.src", image.src);
+                        image.onload = async function () {
+                            const prediction = await model.predict(image);
+                            // console.log("prediction", prediction); //ค่า predi ยังคงเป็นค่าคำสั่ง
+                            displayResult(prediction, imagePreview);
+                        };
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+        function displayResult(predictions, imagePreview) {
+            let classNames = [];
+            let probabilities = [];
+            let items = [];
+            let resultHTML = "asdasd";
+            let options = [
+                { value: '1', text: 'Option 1' },
+                { value: '2', text: 'Option 2' },
+                { value: '3', text: 'Option 3' }
+            ];
+            // console.log("imagePreview", imagePreview);
+            const resultText = document.getElementById('result-text');
+            const image = document.getElementById('image-preview');
+            if (imagePreview) {
+                image.src = imagePreview
+            }
+
+            // แสดงผลลัพธ์ทั้ง 10 อาหาร
+            predictions.forEach(z => {
+                const className = z.className;
+                const probability = (z.probability * 100).toFixed(2);
+                // นำค่า className และ probability เข้า Array
+                classNames.push(className);
+                probabilities.push(probability);
+
+            });
+            // console.log(classNames);
+            // console.log(probabilities);
+            if (classNames && probabilities !== "" || null) {
+                for (let i = 0; i < classNames.length; i++) {
+                    const item = {
+                        name: classNames[i],
+                        rate: probabilities[i]
+                    };
+                    items.push(item);
+                }
+                items.sort((a, b) => parseFloat(b.rate) - parseFloat(a.rate));
+                console.log(items[0]);
+
+                // items.forEach(x => {
+                //     console.log(x);
+                // });
+
+                const dropdown = document.getElementById('foodSelection');
+                options.forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option.value;
+                    optionElement.text = option.text;
+                    dropdown.appendChild(optionElement);
+                });
+            } else {
+                console.log("No classNames or probabilities");
+            }
+            resultHTML += '</ul>';
+            // resultText.innerHTML = resultHTML;
+        }
+
+        function getColor(probability) {
+            // ปรับสีตามความน่าจะเป็น
+            const red = 255 * (1 - probability / 100);
+            const green = 255 * (probability / 100);
+
+            return `rgb(${red}, ${green}, 0)`;
+        }
+
+    </script>
+    <!-- <script type="text/javascript">
             // More API functions here:
             // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
@@ -286,22 +455,22 @@
                     labelContainer.childNodes[i].innerHTML = classPrediction;
                 }
             }
-        </script>
+        </script> -->
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
-        <!-- Page level plugins -->
-        <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <!-- Page level plugins -->
+    <!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
 
-        <!-- Page level custom scripts -->
-        <!-- <script src="js/demo/chart-area-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <!-- <script src="js/demo/chart-area-demo.js"></script>
         <script src="js/demo/chart-pie-demo.js"></script> -->
 
 </body>
