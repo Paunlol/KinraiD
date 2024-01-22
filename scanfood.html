@@ -400,14 +400,41 @@
                 // console.log("resultfood", resultfood);
                 getColor(items[0].rate)
                 const newItems = items.map((item) => {
-                    // ใช้ find() เพื่อหาข้อมูลใน foodAll ที่มีชื่อเหมือนกัน
+                    // console.log("itemasd",item);
+                    let thainame;
                     const matchingFood = foodAll.find((food) => food.name === item.name);
-
-                    // ถ้ามีข้อมูลที่เหมือนกัน, return ตัวแปรที่ประกอบด้วยทั้ง item และ matchingFood
+                    if (item.name === "crispy pork rice") {
+                        thainame = "ข้าวหมูกรอบ"
+                    } else if (item.name === "fried rice") {
+                        thainame = "ข้าวผัดหมู"
+                    }
+                    else if (item.name === "garlic pork rice") {
+                        thainame = "ข้าวหมูกระเทียม"
+                    }
+                    else if (item.name === "namtok noodles") {
+                        thainame = "ก๋วยเตี๋ยวน้ำตก"
+                    }
+                    else if (item.name === "omelet rice") {
+                        thainame = "ข้าวไข่เจียว"
+                    }
+                    else if (item.name === "papaya salad") {
+                        thainame = "ส้มตำ"
+                    }
+                    else if (item.name === "pork basil egg") {
+                        thainame = "ข้าวกะเพราหมูไข่ดาว"
+                    }
+                    else if (item.name === "pork leg rice") {
+                        thainame = "ข้าวขาหมู"
+                    }
+                    else if (item.name === "rice mixed") {
+                        thainame = "ข้าวคุกกระปิ"
+                    }
+                    else if (item.name === "tom yum noodles") {
+                        thainame = "ก๋วยเตี๋ยวต้มยำ"
+                    }
                     if (matchingFood) {
-                        return { item, matchingFood };
+                        return { item, matchingFood, thainame };
                     } else
-                        // ถ้าไม่มีข้อมูลที่เหมือนกัน, return null
                         return null;
                 });
                 foodtext(newItems)
@@ -422,7 +449,7 @@
                 let totla_carb = document.getElementById('totlacarb');
                 let totla_protein = document.getElementById('totlaprotein');
                 console.log("foodlist", foodlist);
-                name_menu.innerHTML = `${foodlist[0].matchingFood.name}`
+                name_menu.innerHTML = `${foodlist[0].thainame}`
                 totla_kcal.value = `${foodlist[0].matchingFood.kcal} kcal`
                 totla_fat.value = `${foodlist[0].matchingFood.fat} g`
                 totla_carb.value = `${foodlist[0].matchingFood.carb} g`
