@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="icon" type="image/x-icon" href="/img/LoGo_KinRaiD 1.png">
     <title>Scan Food</title>
 
     <!-- icon -->
@@ -250,19 +250,44 @@
                                                     style="border-radius: 10rem; padding: 0.5rem; background-color: rgb(197, 246, 255); font: 1em sans-serif; text-align: right;""
                                                     disabled type=" text" name="" id="totlaprotein" value="g"> </span>
                                         </div>
+                                        <div class="h5">
+                                            <div class="row pl-3">
+                                                <div class="col-4-sm col-2-md">Meal Time :</div>
+                                                <div class="col-8-sm col-10-md">
+                                                    <div class="form-check h5 form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="inlineRadioOptions" id="breakfast-time"
+                                                            value="option1">
+                                                        <label class="form-check-label"
+                                                            for="inlineRadio1">Breakfast</label>
+                                                    </div>
+                                                    <div class="form-check h5 form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="inlineRadioOptions" id="lunch-time" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio2">Lunch</label>
+                                                    </div>
+                                                    <div class="form-check h5 form-check-inline">
+                                                        <input class="form-check-input" type="radio"
+                                                            name="inlineRadioOptions" id="dinner-time" value="option3">
+                                                        <label class="form-check-label"
+                                                            for="inlineRadio3">Dinner</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <!-- <div class="col-md-4 col-sm-12 text-center mt-2 ">
                                             <button class="btn btn-primary btn-lg text-center w-100"
                                                 onclick="calculateBMI()">Crate Your Menu</button>
                                         </div> -->
-                                    <div class="col-md-6 col-sm-12 text-center mt-2 ">
+                                    <!-- <div class="col-md-6 col-sm-12 text-center mt-2 ">
                                         <button class="w-100 btn btn-warning btn-lg text-center"
                                             onclick="calculateBMI()">Edit
                                             Menu</button>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12 text-center mt-2 ">
-                                        <button class="w-100 btn btn-success btn-lg text-center"
-                                            onclick="saveBMI()">Save
+                                    </div> -->
+                                    <div class="col-md-12 col-sm-12 text-center mt-2 ">
+                                        <button id="add-food" class="w-100 btn btn-success btn-lg text-center">Save
                                             Menu</button>
                                     </div>
                                 </div>
@@ -311,9 +336,18 @@
                 </div>
             </div>
         </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeBtn">&times;</span>
+                <p>Are you sure you want to save the menu?</p>
+                <button id="confirmSaveBtn">Confirm</button>
+            </div>
+        </div>
+
     </div>
 
-    <script>
+    <script type="module">
+        const button_addfood = document.getElementById('add-food');
         const foodAll = JSON.parse(localStorage.getItem('foodall'));
         const user = JSON.parse(localStorage.getItem('userList'));
         console.log("foodAll", foodAll);
@@ -324,7 +358,6 @@
             console.log('Page is ready to use!');
             // ทำสิ่งที่คุณต้องการทำหลังจากเว็บพร้อมใช้งาน
         });
-        // document.addEventListener('DOMContentLoaded', init);
         function enableInput() {
             // เปลี่ยนค่า disabled เป็น false
             document.getElementById('input-file').disabled = false;
@@ -341,7 +374,7 @@
             // ให้ผู้ใช้เลือกรูปภาพเมื่อคลิกที่ไฟล์
             inputElement.addEventListener('change', handleImageUpload);
 
-            function handleImageUpload() {
+            async function handleImageUpload() {
                 // console.log("asdasdasdasdasdasd");
                 const file = event.target.files[0];
                 if (file) {
@@ -363,7 +396,7 @@
                 }
             }
         }
-        function displayResult(predictions, imagePreview) {
+        async function displayResult(predictions, imagePreview) {
             let classNames = [];
             let probabilities = [];
             let items = [];
@@ -438,11 +471,12 @@
                         return null;
                 });
                 foodtext(newItems)
+                saveMenu(newItems[0].matchingFood);
                 // console.log(newItems);
             } else {
                 console.log("No classNames or probabilities");
             }
-            function foodtext(foodlist) {
+            async function foodtext(foodlist) {
                 let name_menu = document.getElementById('namemenu');
                 let totla_kcal = document.getElementById('totlakcal');
                 let totla_fat = document.getElementById('totlafat');
@@ -456,8 +490,7 @@
                 totla_protein.value = `${foodlist[0].matchingFood.protein} g`
             }
         }
-
-        function getColor(probability) {
+        async function getColor(probability) {
             console.log("probability", probability);
             let accurate = document.getElementById('Accurate');
             let precent = document.getElementById('Precent');
@@ -472,6 +505,10 @@
             result.innerHTML = text;
             result.style.color = color;
             // resultHTML.style.backgroundColor = color;
+        }
+        async function saveMenu(food) {
+            // addfood = food
+            console.log("addfood");
         }
 
     </script>

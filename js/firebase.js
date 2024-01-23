@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 const firebaseConfig = {
     apiKey: "AIzaSyBJMwXm9sPITs4vL8VcQl6sb6eqQbuvzuM",
     authDomain: "kinraidee-32dc4.firebaseapp.com",
@@ -45,3 +45,12 @@ data2.forEach(user => {
 // console.log("userList", userList);
 localStorage.setItem('foodall', JSON.stringify(foodall));
 localStorage.setItem('userList', JSON.stringify(userList));
+
+export function addfood() {
+    // console.log("export yessssssss");
+    // db.collection("user1").doc("LA").set({
+    //     name: "Los Angeles",
+    //     state: "CA",
+    //     country: "USA"
+    // })
+}
